@@ -24,10 +24,7 @@ public class Admin {
 
     // Ingreso de relaciones 
 
-
-
     //Se Generan Getters and Setters
-
 
     public Integer getId() {
         return id;

@@ -96,10 +96,4 @@ public class Audience implements Serializable {
         this.reservations = reservations;
     }
    
-
-
-
-
-
-
 }
