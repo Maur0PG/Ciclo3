@@ -16,8 +16,8 @@ public class Audience implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String owner;
     private String name;
+    private String owner;
     private Integer capacity;
     private String description;
     
@@ -43,24 +43,23 @@ public class Audience implements Serializable {
 
     //Se Generan Getters and Setters
 
-
-    public String getOwner() {
-        return owner;
-    }
     public Integer getId() {
         return id;
     }
     public void setId(Integer id) {
         this.id = id;
     }
-    public void setOwner(String owner) {
-        this.owner = owner;
-    }
     public String getName() {
         return name;
     }
     public void setName(String name) {
         this.name = name;
+    }
+    public String getOwner() {
+        return owner;
+    }
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
     public Integer getCapacity() {
         return capacity;
@@ -77,12 +76,13 @@ public class Audience implements Serializable {
     public Category getCategory() {
         return category;
     }
-
-    //Getters and Setters externos
-
     public void setCategory(Category category) {
         this.category = category;
     }
+
+    //Getters and Setters externos
+
+
     public List<Message> getMessages() {
         return messages;
     }
@@ -95,5 +95,11 @@ public class Audience implements Serializable {
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
     }
+   
+
+
+
+
+
 
 }
