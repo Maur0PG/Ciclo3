@@ -27,4 +27,9 @@ public class AdminRepository {
         return adminCrudRepository.save(ad);
     }
 
+    // Metodo delete
+
+    public void delete(Admin ad){
+        adminCrudRepository.delete(ad);
+    }
 }

@@ -14,13 +14,13 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "reserva")
-public class Reserva implements Serializable {
+@Table(name = "reservation")
+public class Reservation implements Serializable {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Date starDate;
+    private Date startDate;
     private Date devolutionDate;
     private String status = "created";
 
@@ -28,12 +28,12 @@ public class Reserva implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "audience")
-    @JsonIgnoreProperties("reservas")
+    @JsonIgnoreProperties("reservations")
     private Audience audience;
 
     @ManyToOne
     @JoinColumn(name = "client")
-    @JsonIgnoreProperties({"reservas","messages"})
+    @JsonIgnoreProperties({"reservations","messages"})
     private Client client;
 
     //Se Generan Getters and Setters
@@ -44,13 +44,13 @@ public class Reserva implements Serializable {
     }
     public void setId(Integer id) {
         this.id = id;
+    } 
+    public Date getStartDate() {
+        return startDate;
     }
-    public Date getStarDate() {
-        return starDate;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
-    public void setStarDate(Date starDate) {
-        this.starDate = starDate;
-    }   
     public Date getDevolutionDate() {
         return devolutionDate;
     }
@@ -64,7 +64,9 @@ public class Reserva implements Serializable {
         this.status = status;
     }
 
+
     //Getters and Setters externos
+
 
     public Audience getAudience() {
         return audience;
@@ -78,6 +80,4 @@ public class Reserva implements Serializable {
     public void setClient(Client client) {
         this.client = client;
     }
-    
-    
 }

@@ -25,4 +25,10 @@ public class CategoryRepository {
     public Category save(Category cat){
         return categoryCrudRepository.save(cat);
     }
+
+    // Metodo delete
+
+    public void delete(Category cat){
+        categoryCrudRepository.delete(cat);
+    }
 }

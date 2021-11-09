@@ -20,8 +20,9 @@ import co.usa.ciclo3.ciclo3.jar.service.MessageService;
 
 @RestController
 @RequestMapping("/api/Message")
-@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,RequestMethod.DELETE}) 
+@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class MessageController {
+    
     @Autowired
     private MessageService messageService;
 

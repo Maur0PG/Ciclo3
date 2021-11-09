@@ -23,9 +23,9 @@ public class Score {
     // Ingreso de relaciones
 
     @ManyToOne
-    @JoinColumn(name = "reserva")
+    @JoinColumn(name = "reservations")
     @JsonIgnoreProperties("scores")
-    private Reserva reserva;
+    private Reservation reservation;
 
 
     //Se Generan Getters and Setters
@@ -51,11 +51,11 @@ public class Score {
 
     //Getters and Setters externos
 
-    public Reserva getReserva() {
-        return reserva;
+    public Reservation getReservation() {
+        return reservation;
     }
-    public void setReserva(Reserva reserva) {
-        this.reserva = reserva;
+    public void setReservation(Reservation reservation) {
+        this.reservation = reservation;
     }
-    
+
 }

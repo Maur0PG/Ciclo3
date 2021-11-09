@@ -20,7 +20,7 @@ public class Client implements Serializable{
     
      @Id
      @GeneratedValue(strategy = GenerationType.IDENTITY)
-     private Integer id;
+     private Integer idClient;
      private String email;
      private String password;
      private String name;
@@ -29,24 +29,24 @@ public class Client implements Serializable{
     // Ingreso de Relaciones
 
     @OneToMany(cascade = { CascadeType.PERSIST }, mappedBy = "client")
-    @JsonIgnoreProperties({"client,reserva"})
+    @JsonIgnoreProperties("client")
     private List<Message> messages;
 
     @OneToMany(cascade = { CascadeType.PERSIST }, mappedBy = "client")
-    @JsonIgnoreProperties({"client,reserva"})
-    private List<Reserva> reservas; 
+    @JsonIgnoreProperties("client")
+    private List<Reservation> reservations; 
 
 
     //Se Generan Getters and Setters
 
-    public Integer getId() {
-        return id;
-    }
-    public void setId(Integer id) {
-        this.id = id;
-    }
     public String getEmail() {
         return email;
+    }
+    public Integer getIdClient() {
+        return idClient;
+    }
+    public void setIdClient(Integer idClient) {
+        this.idClient = idClient;
     }
     public void setEmail(String email) {
         this.email = email;
@@ -78,11 +78,11 @@ public class Client implements Serializable{
     public void setMessages(List<Message> messages) {
         this.messages = messages;
     }
-    public List<Reserva> getReservas() {
-        return reservas;
+    public List<Reservation> getReservations() {
+        return reservations;
     }
-    public void setReservas(List<Reserva> reservas) {
-        this.reservas = reservas;
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
 
 

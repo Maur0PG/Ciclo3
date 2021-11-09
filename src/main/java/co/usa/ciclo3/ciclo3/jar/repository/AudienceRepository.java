@@ -29,6 +29,11 @@ public class AudienceRepository {
 
     }
 
+    // Metodo delete
+
+    public void delete(Audience a){
+        audienceCrudRepository.delete(a);
+    }
 
 
 }

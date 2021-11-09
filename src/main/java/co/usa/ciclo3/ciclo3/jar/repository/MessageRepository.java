@@ -15,7 +15,7 @@ public class MessageRepository {
     MessageCrudRepository messageCrudRepository;
 
     public List<Message> getAll(){
-        return (List<Message>) messageCrudRepository.findAll();
+        return(List<Message>) messageCrudRepository.findAll();
     }
 
     public Optional<Message> getMessage(int id){
@@ -24,5 +24,11 @@ public class MessageRepository {
 
     public Message save(Message m){
         return messageCrudRepository.save(m);
+    }
+
+    // Metodo delete
+
+    public void delete(Message m){
+        messageCrudRepository.delete(m);
     }
 }

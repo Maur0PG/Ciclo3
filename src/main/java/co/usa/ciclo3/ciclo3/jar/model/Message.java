@@ -21,46 +21,50 @@ public class Message implements Serializable {
     private Integer id;
     private String messageText;
 
-
-    // Ingreso de relaciones
+    // Ingreso de Relaciones
 
     @ManyToOne
     @JoinColumn(name = "audience")
-    @JsonIgnoreProperties({"messages","reservas"})
+    @JsonIgnoreProperties({"messages", "reservations","client"})
     private Audience audience;
-    
+
     @ManyToOne
     @JoinColumn(name = "client")
-    @JsonIgnoreProperties({"messages","reservas"})
+    @JsonIgnoreProperties({"messages", "reservations","client"})
     private Client client;
-    
 
     //Se Generan Getters and Setters
 
     public Integer getId() {
         return id;
     }
+
     public void setId(Integer id) {
         this.id = id;
     }
+
     public String getMessageText() {
         return messageText;
     }
+
     public void setMessageText(String messageText) {
         this.messageText = messageText;
     }
 
     //Getters and Setters externos
-
+    
     public Audience getAudience() {
         return audience;
     }
+
     public void setAudience(Audience audience) {
         this.audience = audience;
     }
+
     public Client getClient() {
         return client;
     }
+
     public void setClient(Client client) {
         this.client = client;
     }

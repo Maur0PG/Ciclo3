@@ -36,19 +36,22 @@ public class Audience implements Serializable {
 
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "audience")
-    @JsonIgnoreProperties("audience")
-    private List<Reserva> reservas;
+    @JsonIgnoreProperties({"audience","client"})
+    private List<Reservation> reservations;
+
+
 
     //Se Generan Getters and Setters
 
+
+    public String getOwner() {
+        return owner;
+    }
     public Integer getId() {
         return id;
     }
     public void setId(Integer id) {
         this.id = id;
-    }
-    public String getOwner() {
-        return owner;
     }
     public void setOwner(String owner) {
         this.owner = owner;
@@ -86,11 +89,11 @@ public class Audience implements Serializable {
     public void setMessages(List<Message> messages) {
         this.messages = messages;
     }
-    public List<Reserva> getReservas() {
-        return reservas;
+    public List<Reservation> getReservations() {
+        return reservations;
     }
-    public void setReservas(List<Reserva> reservas) {
-        this.reservas = reservas;
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
 
 }
