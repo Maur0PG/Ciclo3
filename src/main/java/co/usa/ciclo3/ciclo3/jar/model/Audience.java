@@ -21,6 +21,7 @@ public class Audience implements Serializable {
     private Integer capacity;
     private String description;
     
+    
 
     // Ingreso de relaciones
 
