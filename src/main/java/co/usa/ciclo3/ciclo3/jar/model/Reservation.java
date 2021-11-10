@@ -2,9 +2,8 @@ package co.usa.ciclo3.ciclo3.jar.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,7 +11,7 @@ import javax.persistence.Id;
 
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -42,9 +41,8 @@ public class Reservation implements Serializable {
     private Client client;
 
 
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "reservation")
-    @JsonIgnoreProperties("reservation")
-    private List<Score> score;
+
+    private Integer score;
 
     //Se Generan Getters and Setters
 
@@ -89,10 +87,11 @@ public class Reservation implements Serializable {
     public void setClient(Client client) {
         this.client = client;
     }
-    public List<Score> getScore() {
+
+    public Integer getScore() {
         return score;
     }
-    public void setScore(List<Score> score) {
+    public void setScore(Integer score) {
         this.score = score;
     }
 }
