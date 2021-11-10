@@ -23,11 +23,15 @@ public class MessageService {
     }
 
     public Message save(Message m){
-        if(m.getId()== null){
+        if(m.getIdMessage()== null){
             return messageRepository.save(m);
         }else{
-            return m;
+            Optional<Message> consulta = messageRepository.getMessage(m.getIdMessage());
+            if(consulta.isEmpty()){
+                return messageRepository.save(m);
+            }else{
+                return m;
+            }
         }
     }
-
 }

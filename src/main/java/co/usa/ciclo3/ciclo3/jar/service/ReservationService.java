@@ -23,10 +23,10 @@ public class ReservationService {
     }
 
     public Reservation save(Reservation r){
-        if(r.getId() == null){
+        if(r.getIdReservation() == null){
             return reservationRepository.save(r);
         }else{
-            Optional<Reservation> consulta = reservationRepository.getReservation(r.getId());
+            Optional<Reservation> consulta = reservationRepository.getReservation(r.getIdReservation());
             if(consulta.isEmpty()){
                 return reservationRepository.save(r);
             }else{

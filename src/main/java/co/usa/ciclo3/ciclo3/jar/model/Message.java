@@ -18,7 +18,7 @@ public class Message implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idMessage;
     private String messageText;
 
     // Ingreso de Relaciones
@@ -35,14 +35,14 @@ public class Message implements Serializable {
 
     //Se Generan Getters and Setters
 
-    public Integer getId() {
-        return id;
+    public Integer getIdMessage() {
+        return idMessage;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdMessage(Integer idMessage) {
+        this.idMessage = idMessage;
     }
-
+    
     public String getMessageText() {
         return messageText;
     }
@@ -52,7 +52,7 @@ public class Message implements Serializable {
     }
 
     //Getters and Setters externos
-    
+
     public Audience getAudience() {
         return audience;
     }
