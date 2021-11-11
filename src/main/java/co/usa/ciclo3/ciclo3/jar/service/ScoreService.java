@@ -34,4 +34,34 @@ public class ScoreService {
             }
         }
     }
+
+    public Score update(Score s) {
+
+        if (s.getId() != null) {
+            Optional<Score> consulta = scoreRepository.getScore(s.getId());
+            if (!consulta.isEmpty()) {
+                if (s.getCalification() != null) {
+                    consulta.get().setCalification(s.getCalification());
+                }
+                if (s.getMensaje() != null) {
+                    consulta.get().setMensaje(s.getMensaje());
+                }
+
+            }
+
+            return scoreRepository.save(consulta.get());
+        }
+
+        return s;
+    }
+
+    public boolean deleteScore(int id){
+        Optional<Score> consulta = scoreRepository.getScore(id);
+        if (!consulta.isEmpty()) {
+            scoreRepository.delete(consulta.get());
+            return true;
+        }
+        return false;
+    }
+  
 }

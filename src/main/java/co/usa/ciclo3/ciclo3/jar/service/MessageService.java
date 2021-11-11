@@ -34,4 +34,31 @@ public class MessageService {
             }
         }
     }
+
+    public Message update(Message m) {
+
+        if (m.getIdMessage() != null) {
+            Optional<Message> consulta = messageRepository.getMessage(m.getIdMessage());
+            if (!consulta.isEmpty()) {
+                if (m.getMessageText() != null) {
+                    consulta.get().setMessageText(m.getMessageText());
+                }
+            }
+
+            return messageRepository.save(consulta.get());
+        }
+
+        return m;
+    }
+
+    public boolean deleteMessage(int id){
+        Optional<Message> consulta = messageRepository.getMessage(id);
+        if (!consulta.isEmpty()) {
+            messageRepository.delete(consulta.get());
+            return true;
+        }
+        return false;
+    }
+
+
 }

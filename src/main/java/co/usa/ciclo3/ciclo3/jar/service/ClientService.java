@@ -35,4 +35,39 @@ public class ClientService {
         }
     }    
 
+    public Client update(Client c) {
+        if (c.getIdClient() != null) {
+            Optional<Client> consulta = clientRepository.getClient(c.getIdClient());
+            if (!consulta.isEmpty()) {
+                if (c.getName() != null) {
+                    consulta.get().setName(c.getName());
+                }
+                if (c.getEmail() != null){
+                    consulta.get().setEmail(c.getEmail());
+                }
+                if (c.getPassword() != null) {
+                    consulta.get().setPassword(c.getPassword());
+                }
+                if (c.getAge() != null) {
+                    consulta.get().setAge(c.getAge());
+                }
+            }
+
+            return clientRepository.save(consulta.get());
+        }
+
+        return c;
+    }
+
+    public boolean deleteClient(int id){
+        Optional<Client> consulta = clientRepository.getClient(id);
+        if (!consulta.isEmpty()) {
+            clientRepository.delete(consulta.get());
+            return true;
+        }
+        return false;
+    }
+
+
+
 }
