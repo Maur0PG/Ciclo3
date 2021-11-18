@@ -51,9 +51,8 @@ public class ClientService {
                 if (c.getAge() != null) {
                     consulta.get().setAge(c.getAge());
                 }
+                return clientRepository.save(consulta.get());
             }
-
-            return clientRepository.save(consulta.get());
         }
 
         return c;
